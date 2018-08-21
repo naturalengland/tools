@@ -14,7 +14,7 @@ outputCSV = '<filepath>'
 with open(outputCSV, "w") as csvfile:  
     csvwriter = csv.writer(csvfile, delimiter=',', lineterminator='\n')  
     # Select fields you would like to write to the CSV
-    fields = ['PCODE_TRIM','lad17cd', 'lad17nm'] 
+    fields = ['<Fieldname1>','<Fieldname2>', '<Fieldname3>'] 
     csvwriter.writerow(fields)  
     # Write data from row
     with arcpy.da.SearchCursor(inputTable, fields) as s_cursor:  
