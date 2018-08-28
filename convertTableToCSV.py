@@ -1,4 +1,4 @@
-# This scripts converts an attribute table within ArcGIS to a CSV, allowing you to slect the fields of interest.
+# This scripts converts an attribute table within ArcGIS to a CSV, allowing you to select the fields of interest.
 # Very useful for large attribute tables.
 
 #import modules
@@ -8,7 +8,7 @@ import os
   
 # Environment variables  
 inputTable =r'<filepath>'
-# Need to create a blank CSV before the tool is run (NEED TO CREATE IN LOOP).
+# Need to create a blank CSV before defining the filepath
 outputCSV = '<filepath>'
 
 with open(outputCSV, "w") as csvfile:  
