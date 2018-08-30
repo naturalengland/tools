@@ -7,4 +7,3 @@ A collection of scripts designed to complete a specific task. Scripts should be:
 
 <> should be used to designate where the user needs to enter own string e.g. for a filepath.
 
-Test text to chek new branch is merged correctly.
