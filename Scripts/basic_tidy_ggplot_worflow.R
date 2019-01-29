@@ -35,7 +35,7 @@ tidydata <- watertemp %>%
 #graph it----
 
 #a simple dot plot showing all the data:
-graphdata <- tidydata #not really necessary yet, but I find it useful
+graphdata <- tidydata 
 ggplot(data = graphdata, 
        mapping = aes(x = date, 
                      y = temperature, 
@@ -74,9 +74,12 @@ ggplot(graphdata, aes(x = date, y = temperature, colour = location)) +
        y = "degrees C")
 
 #lets look at am/pm mean temp
-graphdata <- tidydata %>% 
-  group_by(date, location) %>% 
-  summarise(dailymean = mean(temperature))
+graphdata <- tidydata %>% #this symbol is called "pipe" and roughly means "and then".  
+                        #If you don't understand, search for "magrittr pipe"
+  group_by(date, location) %>% #groups data into unique date_location batches
+  summarise(dailymean = mean(temperature)) #this calculates the mean for each group and adds       
+                      #variable `dailymean`.  Your data is now half as long because am & pm 
+                      #have been combined into a mean 
 
 ggplot(graphdata, aes(x = date, 
                       y = dailymean, #note different y axis
@@ -90,7 +93,8 @@ ggplot(graphdata, aes(x = date,
 #lets look at am/pm temp difference
 graphdata <- tidydata %>% 
   spread(key = time, value = temperature) %>% #makes new columns for am & pm
-  mutate(tempdiff = pm - am)
+                      #As with `dailymean`, data is now half as long
+  mutate(tempdiff = pm - am) #adds new column with temperature difference
 
 ggplot(graphdata, aes(x = date, 
                       y = tempdiff, #note different y axis
