@@ -1,5 +1,8 @@
 #Basic graphing worflow with dplyr and ggplot
 
+library(tidyverse)
+#or load tidyr, dplyr and ggplot2 separately
+
 
 #create sample data----
 watertemp <- data.frame(
